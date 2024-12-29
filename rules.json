@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "priority": 2,
+    "action": { "type": "allow" },
+    "condition": {
+      "regexFilter": "^https://www\\.reddit\\.com/media\\?url=.*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://old.reddit.com/\\1"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https://www\\.reddit\\.com/(.*)",
+      "resourceTypes": ["main_frame"],
+      "excludedDomains": [
+        "i.redd.it",
+        "v.redd.it",
+        "redd.it"
+      ]
+    }
+  }
+]
